@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.fypfinal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FypFinal">
+        <activity
+            android:name=".activities.ReviewListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ViewReviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AppointmentScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ReviewScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SaloonServicesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ListSaloonActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SaloonManagerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PostVerificationCodeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CustomerDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.RegistrationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
