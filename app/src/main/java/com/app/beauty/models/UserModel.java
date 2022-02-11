@@ -1,4 +1,4 @@
-package com.app.fypfinal.models;
+package com.app.beauty.models;
 
 public class UserModel {
     String firstName;

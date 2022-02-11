@@ -1,4 +1,4 @@
-package com.app.fypfinal;
+package com.app.beauty;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.app.fypfinal.activities;
+package com.app.beauty.activities;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -12,11 +12,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.fypfinal.Info.Info;
-import com.app.fypfinal.R;
-import com.app.fypfinal.models.UserModel;
-import com.app.fypfinal.utils.DialogUtils;
-import com.app.fypfinal.utils.Utils;
+import com.app.beauty.Info.Info;
+import com.app.beauty.R;
+import com.app.beauty.models.UserModel;
+import com.app.beauty.utils.DialogUtils;
+import com.app.beauty.utils.Utils;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -119,6 +119,7 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
     }
 
     private void initUserData(UserModel userModel) {
+        Log.i(TAG, "initUserData: CREATING USER WITH EMAIL - ");
         FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(RegistrationActivity.userModel.getEmail(), RegistrationActivity.strEtPassword)
                 .addOnCompleteListener(task -> {

@@ -1,4 +1,4 @@
-package com.app.fypfinal.Info;
+package com.app.beauty.Info;
 
 public interface Info {
     String TAG = "mytag";

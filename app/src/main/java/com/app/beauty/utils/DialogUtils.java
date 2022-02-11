@@ -1,10 +1,10 @@
-package com.app.fypfinal.utils;
+package com.app.beauty.utils;
 
 import android.app.Dialog;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.app.fypfinal.R;
+import com.app.beauty.R;
 
 import java.util.Objects;
 

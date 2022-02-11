@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "623510175044",
-    "project_id": "fypfinal-4c73d",
-    "storage_bucket": "fypfinal-4c73d.appspot.com"
+    "project_number": "873100202083",
+    "project_id": "beautysaloon-ceade",
+    "storage_bucket": "beautysaloon-ceade.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:623510175044:android:f66a1107b0f4c158cf2b11",
+        "mobilesdk_app_id": "1:873100202083:android:021926e2e696ef7efee856",
         "android_client_info": {
-          "package_name": "com.app.fypfinal"
+          "package_name": "com.app.beauty"
         }
       },
       "oauth_client": [
         {
-          "client_id": "623510175044-f6v2o178pf6pg4slb5vd2j6m46imf3a4.apps.googleusercontent.com",
+          "client_id": "873100202083-2rh7d6f37ssllpalnfadcg97c4206qv2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.beauty",
+            "certificate_hash": "68a49e668e98b000149ab3d168b0c1d744ae3f31"
+          }
+        },
+        {
+          "client_id": "873100202083-kkl9pr6egp0q0bpdgf8l6tcq4m0jf9eb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCdmYbX13VDJNqBnx1PbMuSgNuRZsNCilI"
+          "current_key": "AIzaSyDfuT_2xTuB7tWoeueLQVC3VJC9szKonKU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "623510175044-f6v2o178pf6pg4slb5vd2j6m46imf3a4.apps.googleusercontent.com",
+              "client_id": "873100202083-kkl9pr6egp0q0bpdgf8l6tcq4m0jf9eb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

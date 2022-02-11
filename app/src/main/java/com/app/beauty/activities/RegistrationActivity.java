@@ -1,4 +1,4 @@
-package com.app.fypfinal.activities;
+package com.app.beauty.activities;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,11 +12,11 @@ import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.fypfinal.Info.Info;
-import com.app.fypfinal.R;
-import com.app.fypfinal.models.UserModel;
-import com.app.fypfinal.utils.DialogUtils;
-import com.app.fypfinal.utils.Utils;
+import com.app.beauty.Info.Info;
+import com.app.beauty.R;
+import com.app.beauty.models.UserModel;
+import com.app.beauty.utils.DialogUtils;
+import com.app.beauty.utils.Utils;
 import com.hbb20.CountryCodePicker;
 
 public class RegistrationActivity extends AppCompatActivity implements Info {

@@ -1,4 +1,4 @@
-package com.app.fypfinal.activities;
+package com.app.beauty.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.fypfinal.R;
+import com.app.beauty.R;
 
 public class AppointmentScreenActivity extends AppCompatActivity {
 

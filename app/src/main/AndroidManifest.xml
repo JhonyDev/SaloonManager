@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.fypfinal">
+    package="com.app.beauty">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,41 +11,58 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FypFinal">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
-            android:name=".activities.ReviewListActivity"
+            android:name="com.app.beauty.MapsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name="com.app.beauty.activities.ReviewListActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ViewReviewActivity"
+            android:name="com.app.beauty.activities.ViewReviewActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AppointmentScreenActivity"
+            android:name="com.app.beauty.activities.AppointmentScreenActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ReviewScreenActivity"
+            android:name="com.app.beauty.activities.ReviewScreenActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.SaloonServicesActivity"
+            android:name="com.app.beauty.activities.SaloonServicesActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ListSaloonActivity"
+            android:name="com.app.beauty.activities.ListSaloonActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.SaloonManagerActivity"
+            android:name="com.app.beauty.activities.SaloonManagerActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.PostVerificationCodeActivity"
+            android:name="com.app.beauty.activities.PostVerificationCodeActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AdminDashboardActivity"
+            android:name="com.app.beauty.activities.AdminDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.CustomerDashboardActivity"
+            android:name="com.app.beauty.activities.CustomerDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.RegistrationActivity"
+            android:name="com.app.beauty.activities.RegistrationActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="com.app.beauty.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

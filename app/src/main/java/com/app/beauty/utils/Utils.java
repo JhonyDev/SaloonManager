@@ -1,8 +1,8 @@
-package com.app.fypfinal.utils;
+package com.app.beauty.utils;
 
 import android.widget.EditText;
 
-import com.app.fypfinal.models.UserModel;
+import com.app.beauty.models.UserModel;
 
 
 public class Utils {

@@ -1,10 +1,10 @@
-package com.app.fypfinal.activities;
+package com.app.beauty.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.app.fypfinal.R;
+import com.app.beauty.R;
 
 public class SaloonManagerActivity extends AppCompatActivity {
 

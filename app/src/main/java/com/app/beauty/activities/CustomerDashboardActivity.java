@@ -1,4 +1,4 @@
-package com.app.fypfinal.activities;
+package com.app.beauty.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.app.fypfinal.R;
+import com.app.beauty.R;
 
 public class CustomerDashboardActivity extends AppCompatActivity {
 
