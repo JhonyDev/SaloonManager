@@ -1,18 +1,18 @@
 package com.app.beauty.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.app.beauty.R;
 
-public class ReviewListActivity extends AppCompatActivity {
+public class ReviewView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_list);
+        setContentView(R.layout.activity_view_review);
     }
 
     public void back(View view) {

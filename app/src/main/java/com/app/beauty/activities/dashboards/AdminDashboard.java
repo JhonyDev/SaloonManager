@@ -1,4 +1,4 @@
-package com.app.beauty.activities;
+package com.app.beauty.activities.dashboards;
 
 import android.os.Bundle;
 
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.R;
 
-public class AdminDashboardActivity extends AppCompatActivity {
+public class AdminDashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

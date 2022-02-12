@@ -9,18 +9,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.R;
 
-public class ListSaloonActivity extends AppCompatActivity {
+public class CustomerServices extends AppCompatActivity {
 
     public static Activity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_saloon_services);
+        setContentView(R.layout.activity_saloon_services);
         context = this;
     }
 
-    public void detailScreen(View view) {
-        startActivity(new Intent(this, SaloonServicesActivity.class));
+    public void serviceHair(View view) {
+        startActivity(new Intent(this, CustomerAppointment.class));
+    }
+
+    public void rateScreen(View view) {
+        startActivity(new Intent(this, ReviewPost.class));
     }
 }

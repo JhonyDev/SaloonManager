@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.CustomerAppointment">
+    tools:context=".activities.SaloonCalender">
 
     <TextView
         android:id="@+id/textView"
@@ -14,12 +14,13 @@
         android:layout_marginStart="20dp"
         android:drawablePadding="20dp"
         android:onClick="back"
-        android:text="@string/confirm_appointment"
-        android:textColor="@color/text_color"
+        android:text="@string/saloon_calender"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:drawableStartCompat="@drawable/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:drawableTint="@color/yellow" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -49,42 +50,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/parlour_name"
-                android:textColor="@color/white" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_rectangle_1594"
-                android:focusableInTouchMode="false"
-                android:paddingHorizontal="10dp"
-                android:text="@string/downtown_beauty_salon"
-                android:textColor="@color/gray"
+                android:text="@string/working_days_of_the_week"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:text="@string/service"
-                android:textColor="@color/white" />
-
-            <EditText
-                android:id="@+id/et_ver_code"
+            <ca.antonious.materialdaypicker.MaterialDayPicker
+                android:id="@+id/mdp_days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_rectangle_1594"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@android:drawable/stat_sys_phone_call"
+                android:drawablePadding="10dp"
                 android:focusableInTouchMode="false"
-                android:inputType="textMultiLine"
+                android:hint="@string/days"
+                android:inputType="text"
                 android:padding="10dp"
-                android:text="@string/hair_dressing"
-                android:textColor="@color/gray"
-                android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             <TextView
@@ -92,71 +72,90 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/time_date"
-                android:textColor="@color/white" />
+                android:text="@string/timings"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+                <EditText
+                    android:id="@+id/et_time_from"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_rectangle_1594"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/from"
+                    android:inputType="time"
+                    android:onClick="showFromTimingsDialog"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hint_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="@string/dash"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <EditText
+                    android:id="@+id/et_timing_to"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_rectangle_1594"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/to"
+                    android:inputType="time"
+                    android:onClick="showToTiming"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/hint_color" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:text="@string/note"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
 
             <EditText
+                android:id="@+id/et_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/ic_rectangle_1594"
+                android:drawableStart="@android:drawable/stat_notify_chat"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:hint="@string/note_in_case_of_exceptional_timings"
                 android:inputType="textMultiLine"
                 android:padding="10dp"
-                android:text="@string/_12_december_2021_3_00_pm"
                 android:textColor="@color/white"
                 android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:text="@string/service_charges"
-                android:textColor="@color/white" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_rectangle_1594"
-                android:focusableInTouchMode="false"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:text="@string/pkr_3000"
-                android:textColor="@color/gray"
-                android:textColorHint="@color/hint_color"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:lineSpacingExtra="2dp"
-                android:text="@string/send_payments_to_using_easypaisa_to_nacc_number_03345585858_ntitle_umar_khan"
-                android:textAlignment="textStart"
-                android:textColor="@color/white" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_rectangle_1594"
-                android:hint="@string/enter_easypaisa_transaction_id_here"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textColor="@color/gray"
-                android:textColorHint="@color/hint_color"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/button_back"
-                android:onClick="confirm"
+                android:backgroundTint="@color/yellow"
+                android:onClick="submit"
                 android:text="@string/confirm"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
@@ -172,7 +171,8 @@
         android:src="@drawable/upper_cut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/yellow" />
 
     <ImageView
         android:id="@+id/imageView2"

@@ -208,4 +208,17 @@
     <string name="salon_title_downtown_parlour">Salon Title: Downtown parlour</string>
     <string name="rating">Rating</string>
     <string name="review">Review</string>
+    <string name="dash">-</string>
+    <string name="to">To</string>
+    <string name="from">From</string>
+    <string name="note_in_case_of_exceptional_timings">Note in case of exceptional timings</string>
+    <string name="note">Note <i>(In case of exceptional timings)</i></string>
+    <string name="working_days_of_the_week">Working Days of the week</string>
+    <string name="days">Days</string>
+    <string name="saloon_calender">Saloon Calender</string>
+    <string name="timings">Timings</string>
+    <string name="manager_s_name">Manager\'s Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="saloon_name">Saloon Name</string>
+    <string name="add_services">Add Services</string>
 </resources>

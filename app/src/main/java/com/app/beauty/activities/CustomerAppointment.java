@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.R;
 
-public class AppointmentScreenActivity extends AppCompatActivity {
+public class CustomerAppointment extends AppCompatActivity {
 
     public static Activity context;
 
@@ -26,8 +26,8 @@ public class AppointmentScreenActivity extends AppCompatActivity {
 
     public void confirm(View view) {
         Toast.makeText(this, "Payment Confirmed", Toast.LENGTH_SHORT).show();
-        ListSaloonActivity.context.finish();
-        SaloonServicesActivity.context.finish();
+        CustomerSaloons.context.finish();
+        CustomerServices.context.finish();
         finish();
     }
 }

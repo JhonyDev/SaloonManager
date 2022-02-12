@@ -1,4 +1,4 @@
-package com.app.beauty.activities;
+package com.app.beauty.activities.authentication;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -19,7 +19,7 @@ import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
 import com.hbb20.CountryCodePicker;
 
-public class RegistrationActivity extends AppCompatActivity implements Info {
+public class Registration extends AppCompatActivity implements Info {
 
     public static String verId;
     public static UserModel userModel;
@@ -123,12 +123,12 @@ public class RegistrationActivity extends AppCompatActivity implements Info {
 
         strEtEmail = "abc" + cpp.getSelectedCountryCode() + strEtPhone + "@email.com";
 
-        RegistrationActivity.userModel = new UserModel(strEtFirstName, strEtLastName, strEtUserName,
+        Registration.userModel = new UserModel(strEtFirstName, strEtLastName, strEtUserName,
                 strEtEmail,
                 "+" + cpp.getSelectedCountryCode() + strEtPhone,
                 CUSTOMER);
 
-        startActivity(new Intent(this, PostVerificationCodeActivity.class));
+        startActivity(new Intent(this, PostVerificationCode.class));
     }
 
 

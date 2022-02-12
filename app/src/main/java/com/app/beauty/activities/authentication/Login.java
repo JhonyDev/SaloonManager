@@ -1,4 +1,4 @@
-package com.app.beauty.activities;
+package com.app.beauty.activities.authentication;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
+import com.app.beauty.activities.dashboards.AdminDashboard;
+import com.app.beauty.activities.dashboards.CustomerDashboard;
+import com.app.beauty.activities.dashboards.SaloonManagerDashboard;
 import com.app.beauty.models.UserModel;
 import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
@@ -32,7 +35,7 @@ import java.util.Objects;
  * PASSWORD = fypfinal
  */
 
-public class LoginActivity extends AppCompatActivity implements Info {
+public class Login extends AppCompatActivity implements Info {
 
     public static Activity context;
     EditText etEmail;
@@ -64,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements Info {
     private void parseUserData() {
         String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         FirebaseDatabase.getInstance().getReference()
-                .child(USER_NODE)
+                .child(NODE_USER)
                 .child(uid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -75,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements Info {
                             Utils.userModel = userModel;
                             initDashCheck();
                         } else
-                            Toast.makeText(LoginActivity.this, "Some error occurred", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -87,15 +90,15 @@ public class LoginActivity extends AppCompatActivity implements Info {
 
     private void initDashCheck() {
         if (Utils.userModel.getType().equals(SALOON_MANAGER))
-            startActivity(new Intent(this, SaloonManagerActivity.class));
+            startActivity(new Intent(this, SaloonManagerDashboard.class));
         else
-            startActivity(new Intent(this, CustomerDashboardActivity.class));
+            startActivity(new Intent(this, CustomerDashboard.class));
         finish();
 
     }
 
     public void signUp(View view) {
-        startActivity(new Intent(this, RegistrationActivity.class));
+        startActivity(new Intent(this, Registration.class));
     }
 
     public void showPassword(View view) {
@@ -146,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements Info {
     private void initUserData() {
         loadingDialog.show();
         FirebaseDatabase.getInstance().getReference()
-                .child(USER_NODE)
+                .child(NODE_USER)
                 .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -157,9 +160,9 @@ public class LoginActivity extends AppCompatActivity implements Info {
                             return;
 
                         if (userModel.getType().equals(CUSTOMER))
-                            startActivity(new Intent(LoginActivity.this, CustomerDashboardActivity.class));
+                            startActivity(new Intent(Login.this, CustomerDashboard.class));
                         else
-                            startActivity(new Intent(LoginActivity.this, AdminDashboardActivity.class));
+                            startActivity(new Intent(Login.this, AdminDashboard.class));
 
                         finish();
                     }

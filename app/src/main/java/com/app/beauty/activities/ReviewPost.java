@@ -7,15 +7,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.R;
 
-public class ViewReviewActivity extends AppCompatActivity {
+public class ReviewPost extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_review);
+        setContentView(R.layout.activity_review_screen);
+
     }
 
     public void back(View view) {
         finish();
+    }
+
+    public void submit(View view) {
+
     }
 }

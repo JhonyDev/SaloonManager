@@ -1,4 +1,4 @@
-package com.app.beauty.activities;
+package com.app.beauty.activities.authentication;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
+import com.app.beauty.activities.dashboards.CustomerDashboard;
+import com.app.beauty.activities.dashboards.SaloonManagerDashboard;
 import com.app.beauty.models.UserModel;
 import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
@@ -27,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class PostVerificationCodeActivity extends AppCompatActivity implements Info {
+public class PostVerificationCode extends AppCompatActivity implements Info {
 
     EditText etVerCode;
     FirebaseAuth firebaseAuth;
@@ -84,7 +86,7 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
     private void sendVerificationCode() {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(firebaseAuth)
-                        .setPhoneNumber(RegistrationActivity.userModel.getPhoneNumber())
+                        .setPhoneNumber(Registration.userModel.getPhoneNumber())
                         .setTimeout(60L, TimeUnit.SECONDS)
                         .setActivity(this)
                         .setCallbacks(mCallbacks)
@@ -109,7 +111,7 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
                     dgLoading.dismiss();
                     if (task.isSuccessful()) {
                         Log.i(TAG, "signInWithPhoneAuthCredential: SUCCESS");
-                        initUserData(RegistrationActivity.userModel);
+                        initUserData(Registration.userModel);
 
                     } else {
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -121,11 +123,11 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
     private void initUserData(UserModel userModel) {
         Log.i(TAG, "initUserData: CREATING USER WITH EMAIL - ");
         FirebaseAuth.getInstance()
-                .createUserWithEmailAndPassword(RegistrationActivity.userModel.getEmail(), RegistrationActivity.strEtPassword)
+                .createUserWithEmailAndPassword(Registration.userModel.getEmail(), Registration.strEtPassword)
                 .addOnCompleteListener(task -> {
                     dgLoading.show();
                     FirebaseDatabase.getInstance().getReference()
-                            .child(USER_NODE)
+                            .child(NODE_USER)
                             .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                             .setValue(userModel)
                             .addOnCompleteListener(task1 -> new Handler().postDelayed(() -> {
@@ -134,7 +136,7 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
                                     Utils.userModel = userModel;
                                     initDashCheck();
                                 } else {
-                                    Toast.makeText(PostVerificationCodeActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(PostVerificationCode.this, "An error occurred", Toast.LENGTH_SHORT).show();
                                     if (task1.getException() != null)
                                         Log.i(TAG, "initUserData: " + Objects.requireNonNull(task1.getException()).getMessage());
                                 }
@@ -144,16 +146,16 @@ public class PostVerificationCodeActivity extends AppCompatActivity implements I
 
     private void initDashCheck() {
         if (Utils.userModel.getType().equals(SALOON_MANAGER)) {
-            startActivity(new Intent(this, SaloonManagerActivity.class));
-            LoginActivity.context.finish();
-            RegistrationActivity.context.finish();
+            startActivity(new Intent(this, SaloonManagerDashboard.class));
+            Login.context.finish();
+            Registration.context.finish();
             finish();
             return;
         }
 
-        startActivity(new Intent(this, CustomerDashboardActivity.class));
-        RegistrationActivity.context.finish();
-        LoginActivity.context.finish();
+        startActivity(new Intent(this, CustomerDashboard.class));
+        Registration.context.finish();
+        Login.context.finish();
         finish();
     }
 
