@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FypFinal</string>
+    <string name="app_name">Saloon</string>
     <string name="welcome_back_sign_in_to_continue"><b>Welcome Back!</b> Sign in to continue</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -223,4 +223,7 @@
     <string name="charges">Charges (PKR)</string>
     <string name="edit_service">Edit</string>
     <string name="easypaisa_account">Easypaisa Account</string>
+    <string name="my_appointments">My Appointments</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
 </resources>

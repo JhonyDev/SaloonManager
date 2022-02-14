@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.ReviewPost">
+    tools:context=".activities.SaloonAppointmentsActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -14,10 +14,11 @@
         android:layout_marginStart="20dp"
         android:drawablePadding="20dp"
         android:onClick="back"
-        android:text="@string/post_a_review"
-        android:textColor="@color/text_color"
+        android:text="Customer Appointment"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:drawableStartCompat="@drawable/back_arrow"
+        app:drawableTint="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -28,69 +29,24 @@
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_bias="0.0">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_saloon_appointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="50dp"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:columnCount="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView2">
-
-
-            <RatingBar
-                android:id="@+id/rb_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:progressBackgroundTint="@color/light_gray"
-                android:progressTint="@color/yellow"
-                android:textSize="18sp" />
-
-
-            <EditText
-                android:id="@+id/et_review_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/ic_rectangle_1594"
-                android:hint="@string/enter_a_review"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/hint_color"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_image"
-                android:textColor="@color/text_color"
-                android:textSize="18sp"
-                android:visibility="gone" />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/button_back"
-                android:onClick="submit"
-                android:text="@string/submit"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/imageView2"
+            tools:listitem="@layout/rv_saloon_appointment" />
     </ScrollView>
 
     <ImageView

@@ -105,4 +105,8 @@ public class SaloonEditService extends AppCompatActivity implements Info {
         strEtDesc = etDesc.getText().toString();
         strEtTitle = etTitle.getText().toString();
     }
+
+    public void back(View view) {
+        finish();
+    }
 }

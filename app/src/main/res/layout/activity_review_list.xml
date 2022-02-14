@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.ReviewList">
+    tools:context=".activities.CustomerReviewList">
 
     <TextView
         android:id="@+id/textView"
@@ -21,105 +21,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <ScrollView
-        android:id="@+id/rv_services"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_reviews"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="50dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView2">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/darker_gray"
-                app:cardCornerRadius="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="15dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/title"
-                        android:textColor="@color/text_color"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:text="@string/salon_title_downtown_parlour"
-                        android:textColor="@color/text_color"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/rating"
-                        android:textColor="@color/text_color"
-                        android:textSize="15sp" />
-
-                    <RatingBar
-                        style="@style/Widget.AppCompat.RatingBar.Indicator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:progressBackgroundTint="@color/light_gray"
-                        android:progressTint="@color/yellow"
-                        android:rating="2.5" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/review"
-                        android:textColor="@color/text_color"
-                        android:textSize="15sp" />
-
-                    <EditText
-                        android:id="@+id/et_ver_code"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_rectangle_1594"
-                        android:focusableInTouchMode="false"
-                        android:hint="@string/enter_a_review"
-                        android:inputType="textMultiLine"
-                        android:padding="10dp"
-                        android:text="@string/this_is_my_review_to_the_salon"
-                        android:textColor="@color/text_color"
-                        android:textColorHint="@color/hint_color"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:listitem="@layout/rv_reviews">
 
 
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.recyclerview.widget.RecyclerView>
 
     <ImageView
         android:id="@+id/imageView"

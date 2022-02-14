@@ -2,6 +2,7 @@ package com.app.beauty.activities;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.Html;
@@ -17,6 +18,7 @@ import com.app.beauty.R;
 import com.app.beauty.models.CustomerAppointment;
 import com.app.beauty.models.Saloon;
 import com.app.beauty.models.SaloonService;
+import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
 
 import java.util.Calendar;
@@ -45,6 +47,7 @@ public class CustomerAppointmentActivity extends AppCompatActivity implements In
     String strEtTxId;
 
     TextView tvAccount;
+    Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,9 @@ public class CustomerAppointmentActivity extends AppCompatActivity implements In
         initFields();
 
         initDatePicker();
+
+        loadingDialog = new Dialog(this);
+        DialogUtils.initLoadingDialog(loadingDialog);
 
     }
 
@@ -108,8 +114,13 @@ public class CustomerAppointmentActivity extends AppCompatActivity implements In
         customerAppointment.setUserId(Utils.getCurrentUserId());
         customerAppointment.setCharges(strEtCharges);
         customerAppointment.setTxid(strEtTxId);
+        customerAppointment.setTxid(Utils.userModel.getFirstName());
         customerAppointment.setAppointmentId(id);
         customerAppointment.setStatus(STATUS_PENDING);
+        customerAppointment.setSaloonName(tempSaloon.getName());
+        customerAppointment.setServiceTitle(tempSaloonService.getTitle());
+
+        loadingDialog.show();
 
         Utils.getReference()
                 .child(NODE_APPOINTMENTS)
@@ -118,6 +129,7 @@ public class CustomerAppointmentActivity extends AppCompatActivity implements In
                 .child(id)
                 .setValue(customerAppointment)
                 .addOnCompleteListener(task -> {
+                    loadingDialog.dismiss();
                     if (task.isSuccessful())
                         initConfirmation();
                     else

@@ -1,9 +1,8 @@
 package com.app.beauty.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
 import com.app.beauty.adapters.TypeRecyclerViewAdapter;
-import com.app.beauty.models.Saloon;
+import com.app.beauty.models.CustomerReview;
 import com.app.beauty.models.Super;
 import com.app.beauty.utils.Utils;
 import com.google.firebase.database.DataSnapshot;
@@ -22,39 +21,43 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerSaloons extends AppCompatActivity implements Info {
-
-    public static Activity context;
-    public static Saloon selectedSaloon;
-    RecyclerView rvSaloons;
+public class CustomerReviewList extends AppCompatActivity implements Info {
+    RecyclerView rvReviews;
     List<Super> superList;
     TypeRecyclerViewAdapter typeRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_saloon_services);
-        context = this;
+        setContentView(R.layout.activity_review_list);
+
         initViews();
-
-
         initRv();
         initRvData();
     }
 
-    private void initViews() {
-        rvSaloons = findViewById(R.id.rv_saloons);
+    private void initRv() {
+        superList = new ArrayList<>();
+        typeRecyclerViewAdapter
+                = new TypeRecyclerViewAdapter(this, superList, Info.RV_TYPE_CUSTOMER_REVIEWS);
+        rvReviews.setAdapter(typeRecyclerViewAdapter);
     }
 
     private void initRvData() {
         Utils.getReference()
-                .child(NODE_SALOONS)
+                .child(NODE_REVIEWS)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot child : snapshot.getChildren()) {
-                            Saloon saloon = child.getValue(Saloon.class);
-                            superList.add(saloon);
+                            for (DataSnapshot grandChild : child.getChildren()) {
+                                CustomerReview customerReview = grandChild.getValue(CustomerReview.class);
+                                if (customerReview == null)
+                                    continue;
+
+                                if (customerReview.getUserId().equals(Utils.getCurrentUserId()))
+                                    superList.add(customerReview);
+                            }
                         }
                         typeRecyclerViewAdapter.notifyDataSetChanged();
                     }
@@ -66,11 +69,11 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
                 });
     }
 
-    private void initRv() {
-        superList = new ArrayList<>();
-        typeRecyclerViewAdapter
-                = new TypeRecyclerViewAdapter(this, superList, Info.RV_TYPE_SALOONS);
-        rvSaloons.setAdapter(typeRecyclerViewAdapter);
+    private void initViews() {
+        rvReviews = findViewById(R.id.rv_reviews);
     }
 
+    public void back(View view) {
+        finish();
+    }
 }

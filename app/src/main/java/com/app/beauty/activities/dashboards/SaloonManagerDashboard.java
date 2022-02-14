@@ -3,7 +3,6 @@ package com.app.beauty.activities.dashboards;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
+import com.app.beauty.activities.SaloonAppointmentsActivity;
 import com.app.beauty.activities.SaloonProfileSettings;
 import com.app.beauty.activities.SaloonServicesActivity;
 import com.app.beauty.models.Saloon;
@@ -53,11 +53,8 @@ public class SaloonManagerDashboard extends AppCompatActivity implements Info {
 
     }
 
-    public void appointmentHistory(View view) {
-
-    }
-
     public void seatsReserved(View view) {
+        startActivity(new Intent(this, SaloonAppointmentsActivity.class));
 
     }
 

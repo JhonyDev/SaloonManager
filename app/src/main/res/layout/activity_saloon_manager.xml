@@ -168,7 +168,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_enableMergePathsForKitKatAndAbove="true"
                         app:lottie_imageAssetsFolder="images/"
-                        app:lottie_rawRes="@raw/review"
+                        app:lottie_rawRes="@raw/emptybox"
                         app:lottie_repeatCount="99999"
                         app:lottie_repeatMode="restart" />
 
@@ -211,7 +211,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_enableMergePathsForKitKatAndAbove="true"
                         app:lottie_imageAssetsFolder="images/"
-                        app:lottie_rawRes="@raw/emptybox"
+                        app:lottie_rawRes="@raw/review"
                         app:lottie_repeatCount="99999"
                         app:lottie_repeatMode="restart" />
 
@@ -220,7 +220,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="15dp"
-                        android:text="@string/reviews"
+                        android:text="Customer Reviews"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
                 </LinearLayout>

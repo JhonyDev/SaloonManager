@@ -1,19 +1,31 @@
 package com.app.beauty.models;
 
-public class CustomerAppointment {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+
+public class CustomerAppointment extends Super {
     String appointmentId;
     String saloonId;
     String userId;
     String appointmentDate;
+    String customerName;
     String appointmentTime;
     String charges;
     String txid;
     String status;
+    String saloonName;
+    String serviceTitle;
 
     public CustomerAppointment() {
     }
 
-    public CustomerAppointment(String appointmentId, String saloonId, String userId, String appointmentDate, String appointmentTime, String charges, String txid) {
+    public CustomerAppointment(String appointmentId,
+                               String saloonId,
+                               String userId,
+                               String appointmentDate,
+                               String appointmentTime,
+                               String charges,
+                               String txid) {
         this.appointmentId = appointmentId;
         this.saloonId = saloonId;
         this.appointmentDate = appointmentDate;
@@ -21,6 +33,30 @@ public class CustomerAppointment {
         this.charges = charges;
         this.txid = txid;
         this.userId = userId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getServiceTitle() {
+        return serviceTitle;
+    }
+
+    public void setServiceTitle(String serviceTitle) {
+        this.serviceTitle = serviceTitle;
+    }
+
+    public String getSaloonName() {
+        return saloonName;
+    }
+
+    public void setSaloonName(String saloonName) {
+        this.saloonName = saloonName;
     }
 
     public String getStatus() {

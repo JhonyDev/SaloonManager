@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_columnWeight="1"
+    android:layout_marginVertical="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardBackgroundColor="@color/light_gray"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_customer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:text="@string/nudrat_beauty_parlour"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center"
+            android:text="Service"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:gravity="start|center"
+            android:text="Service Title"
+            android:textColor="@color/yellow"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center"
+            android:text="EasyPaisa Transaction Id"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_txid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:gravity="start|center"
+            android:text="Transaction Id"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center"
+            android:text="Status"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:gravity="start|center"
+            android:text="Status"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center"
+            android:text="Charges"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_charges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:gravity="start|center"
+            android:text="Charges"
+            android:textColor="@color/yellow"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center"
+            android:text="Date - Time"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center|start"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="15dp"
+                android:gravity="start|center"
+                android:text="@string/date"
+                android:textColor="@color/yellow"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="start|center"
+                android:text="@string/dash"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:gravity="start|center"
+                android:text="@string/time"
+                android:textColor="@color/yellow"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:gravity="end"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:cardBackgroundColor="@color/yellow"
+            app:cardCornerRadius="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="15dp"
+                android:text="Confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:cardBackgroundColor="@color/hint_color"
+            app:cardCornerRadius="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="15dp"
+                android:text="Reject"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.card.MaterialCardView
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            app:cardBackgroundColor="@color/light_gray"
+            app:cardCornerRadius="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="15dp"
+                android:text="Rate customer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

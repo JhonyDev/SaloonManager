@@ -81,11 +81,10 @@
                 android:drawableStart="@android:drawable/stat_sys_phone_call"
                 android:drawablePadding="10dp"
                 android:hint="@string/phone_no"
-                android:inputType="textEmailAddress"
+                android:inputType="phone"
                 android:padding="10dp"
                 android:textColor="@color/text_color"
-                android:textColorHint="@color/hint_color"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                android:textColorHint="@color/hint_color" />
 
             <TextView
                 android:layout_width="wrap_content"

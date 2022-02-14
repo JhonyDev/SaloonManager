@@ -14,7 +14,7 @@
         android:layout_marginStart="20dp"
         android:drawablePadding="20dp"
         android:onClick="back"
-        android:text="@string/add_services"
+        android:text="Edit Service"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:drawableStartCompat="@drawable/back_arrow"

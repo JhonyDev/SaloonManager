@@ -7,8 +7,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.R;
+import com.app.beauty.activities.CustomerAppointmentHistory;
 import com.app.beauty.activities.CustomerSaloons;
-import com.app.beauty.activities.ReviewList;
+import com.app.beauty.activities.CustomerReviewList;
 
 public class CustomerDashboard extends AppCompatActivity {
 
@@ -24,11 +25,14 @@ public class CustomerDashboard extends AppCompatActivity {
     }
 
     public void myReviews(View view) {
-        startActivity(new Intent(this, ReviewList.class));
+        startActivity(new Intent(this, CustomerReviewList.class));
     }
 
     public void reviewsIGot(View view) {
-        startActivity(new Intent(this, ReviewList.class));
+        startActivity(new Intent(this, CustomerReviewList.class));
     }
 
+    public void appointmentHistory(View view) {
+        startActivity(new Intent(this, CustomerAppointmentHistory.class));
+    }
 }

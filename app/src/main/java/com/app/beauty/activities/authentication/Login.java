@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
-import com.app.beauty.activities.dashboards.AdminDashboard;
 import com.app.beauty.activities.dashboards.CustomerDashboard;
 import com.app.beauty.activities.dashboards.SaloonManagerDashboard;
 import com.app.beauty.models.UserModel;
@@ -43,6 +46,8 @@ public class Login extends AppCompatActivity implements Info {
     String strEtEmail;
     String strEtPassword;
     boolean isPassVisible = false;
+    String text;
+    boolean isThreadRunning = false;
     private Dialog loadingDialog;
 
     @Override
@@ -62,6 +67,42 @@ public class Login extends AppCompatActivity implements Info {
             parseUserData();
         }
 
+        initTextWatcher();
+
+    }
+
+    private void initTextWatcher() {
+        etEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                text = etEmail.getText().toString();
+                try {
+                    if (text.charAt(0) == '+')
+                        return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                text = "+" + text;
+                Log.i(TAG, "onTextChanged: " + text);
+
+                if (!isThreadRunning)
+                    new Handler().postDelayed(() -> {
+                        etEmail.setText(text);
+                        isThreadRunning = false;
+                        etEmail.setSelection(etEmail.getText().length());
+                    }, 200);
+                isThreadRunning = true;
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
     }
 
     private void parseUserData() {
@@ -113,11 +154,11 @@ public class Login extends AppCompatActivity implements Info {
     }
 
     public void ForgotPassword(View view) {
-//        TODO : RESET PASSWORD
+
     }
 
     private void castStrings() {
-        strEtEmail = "abc" + etEmail.getText().toString() + "@email.com";
+        strEtEmail = "abc" + etEmail.getText().toString().replace("+", "") + "@email.com";
         strEtPassword = etPassword.getText().toString();
     }
 
@@ -162,7 +203,7 @@ public class Login extends AppCompatActivity implements Info {
                         if (userModel.getType().equals(CUSTOMER))
                             startActivity(new Intent(Login.this, CustomerDashboard.class));
                         else
-                            startActivity(new Intent(Login.this, AdminDashboard.class));
+                            startActivity(new Intent(Login.this, SaloonManagerDashboard.class));
 
                         finish();
                     }

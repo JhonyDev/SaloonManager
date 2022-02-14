@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FypFinal">
         <activity
+            android:name=".activities.SaloonAppointmentsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CustomerAppointmentHistory"
+            android:exported="true" />
+        <activity
             android:name=".activities.SaloonServicesActivity"
             android:exported="true" />
         <activity
@@ -40,7 +46,7 @@
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".activities.ReviewList"
+            android:name=".activities.CustomerReviewList"
             android:exported="true" />
         <activity
             android:name=".activities.ReviewView"
