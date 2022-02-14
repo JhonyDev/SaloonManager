@@ -159,7 +159,6 @@
     <string name="developers">About developers</string>
     <string name="loading_more_tasks_for_you">Loading more tasks for you....</string>
     <string name="failed_to_load_ad">Failed to load ad</string>
-    <string name="title">Title</string>
     <string name="dismiss">Dismiss</string>
     <string name="yes">Yes, I have joined</string>
     <string name="desc">Did you join TaskTok Telegram group? It is a must.\nFollow the link to join our official group.\nhttps://t.me/tasktok</string>
@@ -179,20 +178,19 @@
     <string name="history">History</string>
     <string name="reviews_i_got_from_saloons">Reviews I got from saloons</string>
     <string name="seats_reserved">Seats Reserved</string>
-    <string name="edit_service">Edit Service</string>
     <string name="calender">Calender</string>
     <string name="reviews">Reviews</string>
     <string name="downtown_saloon">Downtown Saloon</string>
     <string name="nudrat_beauty_parlour">Nudrat Beauty Parlour</string>
     <string name="saloon_services">Saloon Services</string>
-    <string name="hair_dressing">Hair Dressing</string>
+    <string name="hair_dressing">Rs. 500</string>
     <string name="rate_this_saloon">Rate this Saloon</string>
     <string name="make_over_masking">Make over masking</string>
     <string name="post_a_review">Post a review</string>
     <string name="enter_a_review">Write a review</string>
     <string name="downtown_beauty_salon">Downtown beauty salon</string>
     <string name="confirm_appointment">Confirm Appointment</string>
-    <string name="parlour_name">Parlour Name</string>
+    <string name="parlour_name">Saloon Name</string>
     <string name="service">Service</string>
     <string name="time_date">Time/Date</string>
     <string name="_12_december_2021_3_00_pm">12 December 2021, 3:00 PM</string>
@@ -219,6 +217,10 @@
     <string name="timings">Timings</string>
     <string name="manager_s_name">Manager\'s Name</string>
     <string name="phone_number">Phone Number</string>
-    <string name="saloon_name">Saloon Name</string>
     <string name="add_services">Add Services</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="charges">Charges (PKR)</string>
+    <string name="edit_service">Edit</string>
+    <string name="easypaisa_account">Easypaisa Account</string>
 </resources>

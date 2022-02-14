@@ -3,6 +3,7 @@ package com.app.beauty.activities.dashboards;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
 import com.app.beauty.activities.SaloonProfileSettings;
+import com.app.beauty.activities.SaloonServicesActivity;
 import com.app.beauty.models.Saloon;
 import com.app.beauty.utils.Utils;
 import com.google.firebase.database.DataSnapshot;
@@ -60,7 +62,7 @@ public class SaloonManagerDashboard extends AppCompatActivity implements Info {
     }
 
     public void addService(View view) {
-
+        startActivity(new Intent(this, SaloonServicesActivity.class));
     }
 
     public void saloonProfileManagement(View view) {

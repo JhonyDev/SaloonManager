@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/rv_services"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/phone_number"
+                android:text="@string/easypaisa_account"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 

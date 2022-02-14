@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FypFinal">
         <activity
+            android:name=".activities.SaloonServicesActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.SaloonCalender"
             android:exported="true" />
         <activity
             android:name=".activities.SaloonProfileSettings"
             android:exported="true" />
         <activity
-            android:name=".activities.SaloonAddService"
+            android:name=".activities.SaloonEditService"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -43,7 +46,7 @@
             android:name=".activities.ReviewView"
             android:exported="true" />
         <activity
-            android:name=".activities.CustomerAppointment"
+            android:name=".activities.CustomerAppointmentActivity"
             android:exported="true" />
         <activity
             android:name=".activities.ReviewPost"

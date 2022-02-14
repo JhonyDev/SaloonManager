@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/rv_services"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginHorizontal="15dp"
-                        android:text="@string/add_services"
+                        android:text="@string/saloon_services"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
                 </LinearLayout>

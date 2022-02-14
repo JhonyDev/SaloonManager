@@ -71,25 +71,29 @@ public class SaloonCalender extends AppCompatActivity implements Info {
 
 
     public void showFromTimingsDialog(View view) {
-        etTimingFrom.setOnClickListener(v -> {
-            Calendar mCurrentTime = Calendar.getInstance();
-            int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
-            int minute = mCurrentTime.get(Calendar.MINUTE);
-            TimePickerDialog mTimePicker;
-            mTimePicker = new TimePickerDialog(SaloonCalender.this, (timePicker, selectedHour, selectedMinute) -> {
-                boolean isPM = selectedHour > 12;
-                String timeString;
-                if (isPM) {
-                    selectedHour -= 12;
+        Calendar mCurrentTime = Calendar.getInstance();
+        int hour = mCurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mCurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(SaloonCalender.this, (timePicker, selectedHour, selectedMinute) -> {
+            boolean isPM = selectedHour > 12;
+            String timeString;
+            if (isPM) {
+                selectedHour -= 12;
+                if (selectedMinute < 10)
+                    timeString = selectedHour + ":0" + selectedMinute + " PM";
+                else
                     timeString = selectedHour + ":" + selectedMinute + " PM";
-                } else
+            } else {
+                if (selectedMinute < 10)
+                    timeString = selectedHour + ":0" + selectedMinute + " AM";
+                else
                     timeString = selectedHour + ":" + selectedMinute + " AM";
-                etTimingFrom.setText(timeString);
-            }, hour, minute, false);
-            mTimePicker.setTitle("Select Time");
-            mTimePicker.show();
-
-        });
+            }
+            etTimingFrom.setText(timeString);
+        }, hour, minute, false);
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
     }
 
     public void submit(View view) {
@@ -148,9 +152,16 @@ public class SaloonCalender extends AppCompatActivity implements Info {
                 String timeString;
                 if (isPM) {
                     selectedHour -= 12;
-                    timeString = selectedHour + ":" + selectedMinute + " PM";
-                } else
-                    timeString = selectedHour + ":" + selectedMinute + " AM";
+                    if (selectedMinute < 10)
+                        timeString = selectedHour + ":0" + selectedMinute + " PM";
+                    else
+                        timeString = selectedHour + ":" + selectedMinute + " PM";
+                } else {
+                    if (selectedMinute < 10)
+                        timeString = selectedHour + ":0" + selectedMinute + " AM";
+                    else
+                        timeString = selectedHour + ":" + selectedMinute + " AM";
+                }
                 etTimingTo.setText(timeString);
             }, hour, minute, false);
             mTimePicker.setTitle("Select Time");

@@ -36,10 +36,21 @@ public class SaloonProfileSettings extends AppCompatActivity implements Info {
 
         saloonTemp = new Saloon();
 
+        initViewFields();
+
+    }
+
+    private void initViewFields() {
+        if (Utils.currentSaloon == null)
+            return;
+
+        etSaloonName.setText(Utils.currentSaloon.getName());
+        etManagerName.setText(Utils.currentSaloon.getManagerName());
+        etPhone.setText(Utils.currentSaloon.getPhone());
     }
 
     private void initViews() {
-        etManagerName = findViewById(R.id.et_timing_to);
+        etManagerName = findViewById(R.id.et_manager_name);
         etPhone = findViewById(R.id.et_phone);
         etSaloonName = findViewById(R.id.et_saloon_name);
     }

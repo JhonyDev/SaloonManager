@@ -23,7 +23,7 @@
         app:drawableTint="@color/yellow" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/rv_services"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"

@@ -1,6 +1,6 @@
 package com.app.beauty.models;
 
-public class Saloon {
+public class Saloon extends Super {
     String managerId; // Saloon Manager will have one salon.
     String managerName;
     String name;
@@ -8,7 +8,7 @@ public class Saloon {
     String timingFrom;
     String timingTo;
     String note;
-    String phone;
+    String phone; // EasyPaisa account number
 
     public Saloon() {
     }

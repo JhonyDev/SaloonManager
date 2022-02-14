@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.CustomerAppointment">
+    tools:context=".activities.CustomerAppointmentActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/rv_services"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
@@ -53,6 +53,7 @@
                 android:textColor="@color/white" />
 
             <EditText
+                android:id="@+id/et_saloon_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -61,7 +62,7 @@
                 android:focusableInTouchMode="false"
                 android:paddingHorizontal="10dp"
                 android:text="@string/downtown_beauty_salon"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
 
@@ -74,7 +75,7 @@
                 android:textColor="@color/white" />
 
             <EditText
-                android:id="@+id/et_ver_code"
+                android:id="@+id/et_service_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -83,7 +84,7 @@
                 android:inputType="textMultiLine"
                 android:padding="10dp"
                 android:text="@string/hair_dressing"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -92,17 +93,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/time_date"
+                android:text="Appointment Date"
                 android:textColor="@color/white" />
 
             <EditText
+                android:id="@+id/et_appointment_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/ic_rectangle_1594"
-                android:inputType="textMultiLine"
+                android:focusableInTouchMode="false"
+                android:hint="Click here to set appointment date"
+                android:inputType="time"
+                android:onClick="showDateDialog"
                 android:padding="10dp"
-                android:text="@string/_12_december_2021_3_00_pm"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint_color"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:text="Appointment Time"
+                android:textColor="@color/white" />
+
+            <EditText
+
+                android:id="@+id/et_timing_of_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/ic_rectangle_1594"
+                android:focusableInTouchMode="false"
+                android:hint="Click here to set appointment time"
+                android:inputType="date"
+                android:onClick="showTimeDialog"
+                android:padding="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -116,6 +144,7 @@
                 android:textColor="@color/white" />
 
             <EditText
+                android:id="@+id/et_charges"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -124,11 +153,12 @@
                 android:inputType="textMultiLine"
                 android:padding="10dp"
                 android:text="@string/pkr_3000"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
                 android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
             <TextView
+                android:id="@+id/tv_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -139,6 +169,7 @@
                 android:textColor="@color/white" />
 
             <EditText
+                android:id="@+id/et_txid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
