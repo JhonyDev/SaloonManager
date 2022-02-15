@@ -130,6 +130,8 @@ public class Login extends AppCompatActivity implements Info {
     }
 
     private void initDashCheck() {
+        Log.i(TAG, "initDashCheck: " + Utils.userModel.getFirstName());
+        Log.i(TAG, "initDashCheck: " + Utils.userModel.getType());
         if (Utils.userModel.getType().equals(SALOON_MANAGER))
             startActivity(new Intent(this, SaloonManagerDashboard.class));
         else

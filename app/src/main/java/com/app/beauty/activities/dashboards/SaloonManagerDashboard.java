@@ -11,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
 import com.app.beauty.activities.SaloonAppointmentsActivity;
+import com.app.beauty.activities.SaloonCustomerReviews;
 import com.app.beauty.activities.SaloonProfileSettings;
+import com.app.beauty.activities.SaloonReviewList;
 import com.app.beauty.activities.SaloonServicesActivity;
 import com.app.beauty.models.Saloon;
 import com.app.beauty.utils.Utils;
@@ -67,6 +69,10 @@ public class SaloonManagerDashboard extends AppCompatActivity implements Info {
     }
 
     public void reviews(View view) {
+        startActivity(new Intent(this, SaloonReviewList.class));
+    }
 
+    public void reviewsWeGave(View view) {
+        startActivity(new Intent(this, SaloonCustomerReviews.class));
     }
 }

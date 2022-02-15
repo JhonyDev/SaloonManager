@@ -9,9 +9,10 @@
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/drawable/upper_cut.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_add_service.xml" value="0.5057471264367817" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.152" />
-        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_appointment_screen.xml" value="0.264" />
-        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_customer_appointment_history.xml" value="0.25" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_appointment_screen.xml" value="0.176" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_customer_appointment_history.xml" value="0.536" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_customer_dashboard.xml" value="0.264" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_customer_saloon_reviews.xml" value="0.264" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_customer_services.xml" value="0.176" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_list_saloon_services.xml" value="0.2" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -20,10 +21,12 @@
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_review_list.xml" value="0.2" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_review_screen.xml" value="0.25" />
-        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_appointments.xml" value="0.264" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_appointments.xml" value="0.144" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_calender.xml" value="0.4" />
-        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_manager.xml" value="0.2" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_customer_reviews.xml" value="0.11666666666666667" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_manager.xml" value="0.12" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_profile_settings.xml" value="0.264" />
+        <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_review_list.xml" value="0.25" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_services.xml" value="0.264" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_saloon_services2.xml" value="0.176" />
         <entry key="..\:/Users/Jhony Dev/AndroidStudioProjects/FypFinal/app/src/main/res/layout/activity_view_review.xml" value="0.234375" />

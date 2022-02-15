@@ -200,7 +200,7 @@
     <string name="send_payments_to_using_easypaisa_to_nacc_number_03345585858_ntitle_umar_khan">Send payments using Easypaisa to,\n<b>Acc Number:</b> 03345585858\n<b>Title:</b> Umar Khan</string>
     <string name="my_reviews">My Reviews</string>
     <string name="this_is_a_review">This is a review</string>
-    <string name="review_list_activity">Review List Activity</string>
+    <string name="review_list_activity">Review List</string>
     <string name="this_is_my_review_to_the_salon">This is my review to the salon</string>
     <string name="saloon_name">Saloon Name</string>
     <string name="salon_title_downtown_parlour">Salon Title: Downtown parlour</string>
@@ -226,4 +226,7 @@
     <string name="my_appointments">My Appointments</string>
     <string name="time">Time</string>
     <string name="date">Date</string>
+    <string name="name">Name</string>
+    <string name="no_reviews_found">No Data Found</string>
+    <string name="reviews_i_got_from_saloon">Reviews I got from saloons</string>
 </resources>

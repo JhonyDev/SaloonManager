@@ -29,6 +29,7 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
     RecyclerView rvSaloons;
     List<Super> superList;
     TypeRecyclerViewAdapter typeRecyclerViewAdapter;
+    TextView tvNoReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
     }
 
     private void initViews() {
+
         rvSaloons = findViewById(R.id.rv_saloons);
+        tvNoReview = findViewById(R.id.tv_no_review);
     }
 
     private void initRvData() {
@@ -56,6 +59,10 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
                             Saloon saloon = child.getValue(Saloon.class);
                             superList.add(saloon);
                         }
+                        if (superList.isEmpty())
+                            tvNoReview.setVisibility(View.VISIBLE);
+                        else
+                            tvNoReview.setVisibility(View.GONE);
                         typeRecyclerViewAdapter.notifyDataSetChanged();
                     }
 

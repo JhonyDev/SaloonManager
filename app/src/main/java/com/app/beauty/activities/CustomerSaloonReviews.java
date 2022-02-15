@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerReviewList extends AppCompatActivity implements Info {
+public class CustomerSaloonReviews extends AppCompatActivity implements Info {
     RecyclerView rvReviews;
     List<Super> superList;
     TypeRecyclerViewAdapter typeRecyclerViewAdapter;
@@ -30,11 +30,15 @@ public class CustomerReviewList extends AppCompatActivity implements Info {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review_list);
+        setContentView(R.layout.activity_customer_saloon_reviews);
 
         initViews();
         initRv();
         initRvData();
+    }
+
+    public void back(View view) {
+        finish();
     }
 
     private void initRv() {
@@ -47,19 +51,18 @@ public class CustomerReviewList extends AppCompatActivity implements Info {
     private void initRvData() {
         Utils.getReference()
                 .child(NODE_REVIEWS)
+                .child(Utils.getCurrentUserId())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot child : snapshot.getChildren()) {
-                            for (DataSnapshot grandChild : child.getChildren()) {
-                                CustomerReview customerReview = grandChild.getValue(CustomerReview.class);
-                                if (customerReview == null)
-                                    continue;
-                                if (grandChild.getKey() != null)
-                                    if (grandChild.getKey().equals(Utils.getCurrentUserId()))
-                                        superList.add(customerReview);
-                            }
+                        for (DataSnapshot grandChild : snapshot.getChildren()) {
+                            CustomerReview customerReview = grandChild.getValue(CustomerReview.class);
+                            if (customerReview == null)
+                                continue;
+                            superList.add(customerReview);
+
                         }
+
                         if (superList.isEmpty())
                             tvNoReview.setVisibility(View.VISIBLE);
                         else
@@ -79,7 +82,4 @@ public class CustomerReviewList extends AppCompatActivity implements Info {
         tvNoReview = findViewById(R.id.tv_no_review);
     }
 
-    public void back(View view) {
-        finish();
-    }
 }

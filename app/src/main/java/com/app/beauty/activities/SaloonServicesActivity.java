@@ -3,6 +3,7 @@ package com.app.beauty.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,13 +28,14 @@ public class SaloonServicesActivity extends AppCompatActivity implements Info {
     RecyclerView rvServices;
     List<Super> superList;
     TypeRecyclerViewAdapter typeRecyclerViewAdapter;
-
+    TextView tvNoReview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saloon_services);
 
         rvServices = findViewById(R.id.rv_services);
+        tvNoReview = findViewById(R.id.tv_no_review);
         initRv();
     }
 
@@ -56,6 +58,10 @@ public class SaloonServicesActivity extends AppCompatActivity implements Info {
                             SaloonService saloonService = child.getValue(SaloonService.class);
                             superList.add(saloonService);
                         }
+                        if (superList.isEmpty())
+                            tvNoReview.setVisibility(View.VISIBLE);
+                        else
+                            tvNoReview.setVisibility(View.GONE);
                         typeRecyclerViewAdapter.notifyDataSetChanged();
                     }
 

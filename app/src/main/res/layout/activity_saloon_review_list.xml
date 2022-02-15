@@ -5,66 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.CustomerServices">
+    tools:context=".activities.SaloonReviewList">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/parlour"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/downtown_beauty_salon"
-        android:textColor="@color/white"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:drawablePadding="20dp"
+        android:onClick="back"
+        android:text="@string/review_list_activity"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        app:drawableStartCompat="@drawable/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/rate"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:onClick="rateScreen"
-        android:text="@string/rate_this_saloon"
-        android:textAllCaps="false"
-        android:textColor="@color/yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/saloon_services"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rate" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_services"
+        android:id="@+id/rv_reviews"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text"
-        tools:listitem="@layout/rv_customer_service">
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:listitem="@layout/rv_reviews">
 
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -89,6 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_no_review"
         android:layout_width="wrap_content"
@@ -99,4 +68,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

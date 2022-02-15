@@ -154,7 +154,11 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
 
     private void initCustomerReviews(TypeRecyclerViewHolder holder, int position) {
         CustomerReview customerReview = (CustomerReview) listInstances.get(position);
-        holder.tvSaloonName.setText(customerReview.getSaloonName());
+        if (customerReview.getSaloonId().equals(Utils.getCurrentUserId()))
+            holder.tvSaloonName.setText(customerReview.getCustomerName());
+        else
+            holder.tvSaloonName.setText(customerReview.getSaloonName());
+
         holder.etReview.setText(customerReview.getReview());
         holder.rbRating.setRating(Float.parseFloat(customerReview.getRating()));
     }

@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FypFinal">
         <activity
+            android:name=".activities.SaloonCustomerReviews"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CustomerSaloonReviews"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SaloonReviewList"
+            android:exported="true" />
+        <activity
             android:name=".activities.SaloonAppointmentsActivity"
             android:exported="true" />
         <activity

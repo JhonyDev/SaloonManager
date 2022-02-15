@@ -114,7 +114,7 @@ public class CustomerAppointmentActivity extends AppCompatActivity implements In
         customerAppointment.setUserId(Utils.getCurrentUserId());
         customerAppointment.setCharges(strEtCharges);
         customerAppointment.setTxid(strEtTxId);
-        customerAppointment.setTxid(Utils.userModel.getFirstName());
+        customerAppointment.setCustomerName(Utils.userModel.getFirstName());
         customerAppointment.setAppointmentId(id);
         customerAppointment.setStatus(STATUS_PENDING);
         customerAppointment.setSaloonName(tempSaloon.getName());

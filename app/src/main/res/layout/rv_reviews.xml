@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="10dp"
-            android:text="@string/title"
+            android:text="@string/name"
             android:textColor="@color/text_color"
             android:textSize="15sp" />
 

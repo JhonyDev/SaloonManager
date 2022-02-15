@@ -3,6 +3,7 @@ package com.app.beauty.activities;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class CustomerAppointmentHistory extends AppCompatActivity implements Inf
     List<Super> superList;
     TypeRecyclerViewAdapter typeRecyclerViewAdapter;
     Dialog loadingDialog;
+    TextView tvNoReview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class CustomerAppointmentHistory extends AppCompatActivity implements Inf
         loadingDialog.show();
         Utils.getReference()
                 .child(NODE_APPOINTMENTS)
+                .child(Utils.getCurrentUserId())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -53,11 +56,13 @@ public class CustomerAppointmentHistory extends AppCompatActivity implements Inf
                                 CustomerAppointment customerAppointment = grandChild.getValue(CustomerAppointment.class);
                                 if (customerAppointment == null)
                                     continue;
+                                superList.add(customerAppointment);
 
-                                if (customerAppointment.getSaloonId().equals(Utils.getCurrentUserId())) {
-                                    superList.add(customerAppointment);
-                                }
                             }
+                        if (superList.isEmpty())
+                            tvNoReview.setVisibility(View.VISIBLE);
+                        else
+                            tvNoReview.setVisibility(View.GONE);
                         typeRecyclerViewAdapter.notifyDataSetChanged();
 
                     }
@@ -72,7 +77,7 @@ public class CustomerAppointmentHistory extends AppCompatActivity implements Inf
     private void initRv() {
         superList = new ArrayList<>();
         typeRecyclerViewAdapter
-                = new TypeRecyclerViewAdapter(this, superList, Info.RV_TYPE_SALOON_APPOINTMENTS);
+                = new TypeRecyclerViewAdapter(this, superList, Info.RV_TYPE_CUSTOMER_APPOINTMENTS);
         rvAppointmentHistory.setAdapter(typeRecyclerViewAdapter);
     }
 
@@ -82,6 +87,7 @@ public class CustomerAppointmentHistory extends AppCompatActivity implements Inf
 
     private void initViews() {
         rvAppointmentHistory = findViewById(R.id.rv_appointment_history);
+        tvNoReview = findViewById(R.id.tv_no_review);
     }
 
 }
