@@ -67,43 +67,9 @@ public class Login extends AppCompatActivity implements Info {
             parseUserData();
         }
 
-        initTextWatcher();
 
     }
 
-    private void initTextWatcher() {
-        etEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                text = etEmail.getText().toString();
-                try {
-                    if (text.charAt(0) == '+')
-                        return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                text = "+" + text;
-                Log.i(TAG, "onTextChanged: " + text);
-
-                if (!isThreadRunning)
-                    new Handler().postDelayed(() -> {
-                        etEmail.setText(text);
-                        isThreadRunning = false;
-                        etEmail.setSelection(etEmail.getText().length());
-                    }, 200);
-                isThreadRunning = true;
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-    }
 
     private void parseUserData() {
         String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
@@ -130,8 +96,6 @@ public class Login extends AppCompatActivity implements Info {
     }
 
     private void initDashCheck() {
-        Log.i(TAG, "initDashCheck: " + Utils.userModel.getFirstName());
-        Log.i(TAG, "initDashCheck: " + Utils.userModel.getType());
         if (Utils.userModel.getType().equals(SALOON_MANAGER))
             startActivity(new Intent(this, SaloonManagerDashboard.class));
         else

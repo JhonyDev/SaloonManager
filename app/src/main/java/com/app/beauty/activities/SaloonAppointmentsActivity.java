@@ -51,8 +51,8 @@ public class SaloonAppointmentsActivity extends AppCompatActivity implements Inf
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         loadingDialog.dismiss();
                         superList.clear();
-                        for (DataSnapshot child : snapshot.getChildren()) {
-                            for (DataSnapshot grandChild : child.getChildren()) {
+                        for (DataSnapshot child : snapshot.getChildren())
+                            for (DataSnapshot grandChild : child.getChildren())
                                 for (DataSnapshot greatGrandChild : grandChild.getChildren()) {
                                     CustomerAppointment saloon = greatGrandChild.getValue(CustomerAppointment.class);
                                     if (saloon == null)
@@ -60,8 +60,6 @@ public class SaloonAppointmentsActivity extends AppCompatActivity implements Inf
                                     if (saloon.getSaloonId().equals(Utils.getCurrentUserId()))
                                         superList.add(saloon);
                                 }
-                            }
-                        }
                         if (superList.isEmpty())
                             tvNoReview.setVisibility(View.VISIBLE);
                         else
