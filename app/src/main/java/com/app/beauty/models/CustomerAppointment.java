@@ -1,38 +1,45 @@
 package com.app.beauty.models;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
-
 public class CustomerAppointment extends Super {
     String appointmentId;
     String saloonId;
     String userId;
     String appointmentDate;
     String customerName;
-    String appointmentTime;
+    String selectedTimeSlot;
     String charges;
     String txid;
     String status;
     String saloonName;
     String serviceTitle;
+    String requestedStaff;
 
     public CustomerAppointment() {
+
     }
 
     public CustomerAppointment(String appointmentId,
                                String saloonId,
                                String userId,
                                String appointmentDate,
-                               String appointmentTime,
+                               String selectedTimeSlot,
                                String charges,
                                String txid) {
         this.appointmentId = appointmentId;
         this.saloonId = saloonId;
         this.appointmentDate = appointmentDate;
-        this.appointmentTime = appointmentTime;
+        this.selectedTimeSlot = selectedTimeSlot;
         this.charges = charges;
         this.txid = txid;
         this.userId = userId;
+    }
+
+    public String getRequestedStaff() {
+        return requestedStaff;
+    }
+
+    public void setRequestedStaff(String requestedStaff) {
+        this.requestedStaff = requestedStaff;
     }
 
     public String getCustomerName() {
@@ -99,12 +106,12 @@ public class CustomerAppointment extends Super {
         this.appointmentDate = appointmentDate;
     }
 
-    public String getAppointmentTime() {
-        return appointmentTime;
+    public String getSelectedTimeSlot() {
+        return selectedTimeSlot;
     }
 
-    public void setAppointmentTime(String appointmentTime) {
-        this.appointmentTime = appointmentTime;
+    public void setSelectedTimeSlot(String selectedTimeSlot) {
+        this.selectedTimeSlot = selectedTimeSlot;
     }
 
     public String getCharges() {

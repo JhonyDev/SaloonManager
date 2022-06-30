@@ -5,7 +5,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.app.beauty.R;
+import com.google.android.material.card.MaterialCardView;
 
+import java.util.List;
 import java.util.Objects;
 
 public class DialogUtils {
@@ -31,5 +33,6 @@ public class DialogUtils {
         loadingDialog.setCanceledOnTouchOutside(false);
         setDefaultDialogProperties(loadingDialog);
     }
+
 
 }

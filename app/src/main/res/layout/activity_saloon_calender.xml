@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.SaloonCalender">
+    tools:context=".activities.saloon.ui.SaloonCalender">
 
     <TextView
         android:id="@+id/textView"
@@ -18,9 +18,9 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:drawableStartCompat="@drawable/back_arrow"
+        app:drawableTint="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:drawableTint="@color/yellow" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ScrollView
         android:id="@+id/rv_services"
@@ -72,54 +72,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/timings"
+                android:text="@string/select_saloon_available_timings"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3">
-
-                <EditText
-                    android:id="@+id/et_time_from"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_rectangle_1594"
-                    android:focusableInTouchMode="false"
-                    android:hint="@string/from"
-                    android:inputType="time"
-                    android:onClick="showFromTimingsDialog"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/hint_color" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="@string/dash"
-                    android:textColor="@color/white"
-                    android:textSize="22sp" />
-
-                <EditText
-                    android:id="@+id/et_timing_to"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/ic_rectangle_1594"
-                    android:focusableInTouchMode="false"
-                    android:hint="@string/to"
-                    android:inputType="time"
-                    android:onClick="showToTiming"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/hint_color" />
-            </LinearLayout>
+            <include layout="@layout/slot_layout" />
 
             <TextView
                 android:layout_width="wrap_content"

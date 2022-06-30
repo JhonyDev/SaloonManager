@@ -2,6 +2,7 @@ package com.app.beauty.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,18 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
-import com.app.beauty.activities.CustomerAppointmentActivity;
-import com.app.beauty.activities.CustomerSaloons;
-import com.app.beauty.activities.CustomerServices;
 import com.app.beauty.activities.ReviewPost;
-import com.app.beauty.activities.SaloonAppointmentsActivity;
-import com.app.beauty.activities.SaloonEditService;
-import com.app.beauty.activities.SaloonServicesActivity;
+import com.app.beauty.activities.customer.ui.CustomerAppointmentActivity;
+import com.app.beauty.activities.customer.ui.CustomerSaloons;
+import com.app.beauty.activities.customer.ui.CustomerServices;
+import com.app.beauty.activities.saloon.ui.AddStaff;
+import com.app.beauty.activities.saloon.ui.SaloonAppointmentsActivity;
+import com.app.beauty.activities.saloon.ui.SaloonEditService;
+import com.app.beauty.activities.saloon.ui.SaloonServicesActivity;
 import com.app.beauty.models.CustomerAppointment;
 import com.app.beauty.models.CustomerReview;
 import com.app.beauty.models.Saloon;
 import com.app.beauty.models.SaloonService;
+import com.app.beauty.models.Staff;
 import com.app.beauty.models.Super;
+import com.app.beauty.singletons.SlotsMapSingleton;
+import com.app.beauty.singletons.StaffSingleton;
 import com.app.beauty.utils.Utils;
 
 import java.util.ArrayList;
@@ -74,6 +79,7 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
             initSaloonAppointments(holder, position);
             return;
         }
+
         if (type == RV_TYPE_CUSTOMER_REVIEWS) {
             initCustomerReviews(holder, position);
             return;
@@ -102,45 +108,63 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
         holder.tvCustomerName.setText(customerAppointment.getCustomerName());
         holder.tvTitle.setText(customerAppointment.getServiceTitle());
         holder.tvStatus.setText(customerAppointment.getStatus());
-        holder.tvTime.setText(customerAppointment.getAppointmentTime());
+        try {
+            holder.tvTime.setText(SlotsMapSingleton.getInstance().get(Integer.parseInt(customerAppointment.getSelectedTimeSlot())));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         holder.tvTxId.setText(customerAppointment.getTxid());
         holder.tvDate.setText(customerAppointment.getAppointmentDate());
         holder.tvCharges.setText(customerAppointment.getCharges());
-        if (customerAppointment.getStatus().equals(STATUS_REJECTED)) {
-            holder.tvStatus.setTextColor(context.getColor(R.color.red));
+        try {
+            holder.tv_staff.setText(customerAppointment.getRequestedStaff());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (customerAppointment.getStatus().equals(STATUS_CONFIRMED)) {
-            holder.tvStatus.setTextColor(context.getColor(R.color.green));
-        }
+
         switch (customerAppointment.getStatus()) {
             case STATUS_PENDING:
                 holder.btnConfirm.setVisibility(View.VISIBLE);
                 holder.btnReject.setVisibility(View.VISIBLE);
+                holder.btnRate.setVisibility(View.GONE);
+                holder.btnCompleted.setVisibility(View.GONE);
                 break;
-            case STATUS_REJECTED:
-            case STATUS_CONFIRMED:
+            case STATUS_COMPLETED:
+                holder.tvStatus.setTextColor(context.getColor(R.color.blue));
+                holder.btnRate.setVisibility(View.VISIBLE);
                 holder.btnConfirm.setVisibility(View.GONE);
                 holder.btnReject.setVisibility(View.GONE);
+                holder.btnCompleted.setVisibility(View.GONE);
+                break;
+            case STATUS_REJECTED:
+                holder.tvStatus.setTextColor(context.getColor(R.color.red));
+                holder.btnConfirm.setVisibility(View.GONE);
+                holder.btnReject.setVisibility(View.GONE);
+                holder.btnRate.setVisibility(View.GONE);
+                holder.btnCompleted.setVisibility(View.GONE);
+                break;
+            case STATUS_CONFIRMED:
+                holder.btnCompleted.setVisibility(View.VISIBLE);
+                holder.btnConfirm.setVisibility(View.GONE);
+                holder.btnReject.setVisibility(View.GONE);
+                holder.btnRate.setVisibility(View.GONE);
+                holder.tvStatus.setTextColor(context.getColor(R.color.green));
                 break;
         }
 
         holder.btnConfirm.setOnClickListener(view -> {
             customerAppointment.setStatus(STATUS_CONFIRMED);
-            Utils.getReference()
-                    .child(NODE_APPOINTMENTS)
-                    .child(customerAppointment.getUserId())
-                    .child(customerAppointment.getSaloonId())
-                    .child(customerAppointment.getAppointmentId())
-                    .setValue(customerAppointment);
+            updateAppointment(customerAppointment);
         });
+
         holder.btnReject.setOnClickListener(view -> {
             customerAppointment.setStatus(STATUS_REJECTED);
-            Utils.getReference()
-                    .child(NODE_APPOINTMENTS)
-                    .child(customerAppointment.getUserId())
-                    .child(customerAppointment.getSaloonId())
-                    .child(customerAppointment.getAppointmentId())
-                    .setValue(customerAppointment);
+            updateAppointment(customerAppointment);
+        });
+
+        holder.btnCompleted.setOnClickListener(view -> {
+            customerAppointment.setStatus(STATUS_COMPLETED);
+            updateAppointment(customerAppointment);
         });
 
         holder.btnRate.setOnClickListener(view -> {
@@ -150,6 +174,15 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
             context.startActivity(intent);
         });
 
+    }
+
+    private void updateAppointment(CustomerAppointment customerAppointment) {
+        Utils.getReference()
+                .child(NODE_APPOINTMENTS)
+                .child(customerAppointment.getUserId())
+                .child(customerAppointment.getSaloonId())
+                .child(customerAppointment.getAppointmentId())
+                .setValue(customerAppointment);
     }
 
     private void initCustomerReviews(TypeRecyclerViewHolder holder, int position) {
@@ -168,15 +201,23 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
         holder.tvTitle.setText(customerAppointment.getServiceTitle());
         holder.tvCharges.setText(customerAppointment.getCharges());
         holder.tvDate.setText(customerAppointment.getAppointmentDate());
-        holder.tvTime.setText(customerAppointment.getAppointmentTime());
+        try {
+            holder.tvTime.setText(SlotsMapSingleton.getInstance().get(Integer.parseInt(customerAppointment.getSelectedTimeSlot())));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e(TAG, "initCustomerAppointment: " + customerAppointment.getSelectedTimeSlot());
+        }
         holder.tvSaloonName.setText(customerAppointment.getSaloonName());
         holder.tvStatus.setText(customerAppointment.getStatus());
-        if (customerAppointment.getStatus().equals(STATUS_REJECTED)) {
+        if (customerAppointment.getStatus().equals(STATUS_REJECTED))
             holder.tvStatus.setTextColor(context.getColor(R.color.red));
-        }
-        if (customerAppointment.getStatus().equals(STATUS_CONFIRMED)) {
+
+        if (customerAppointment.getStatus().equals(STATUS_CONFIRMED))
             holder.tvStatus.setTextColor(context.getColor(R.color.green));
-        }
+
+        if (customerAppointment.getStatus().equals(STATUS_COMPLETED))
+            holder.tvStatus.setTextColor(context.getColor(R.color.blue));
+
     }
 
     private void initCustomerServices(TypeRecyclerViewHolder holder, int position) {
@@ -213,6 +254,18 @@ public class TypeRecyclerViewAdapter extends RecyclerView.Adapter<TypeRecyclerVi
     }
 
     private void initServices(TypeRecyclerViewHolder holder, int position) {
+        if (type == RV_TYPE_STAFF_LIST) {
+            Staff staff = (Staff) listInstances.get(position);
+            holder.btnEdit.setOnClickListener(view -> {
+                StaffSingleton.setStaff(staff);
+                Intent intent = new Intent(context, AddStaff.class);
+                context.startActivity(intent);
+            });
+            holder.tvTitle.setText(staff.getTitle());
+            holder.tvDesc.setText(staff.getDescription());
+            holder.tvCharges.setVisibility(View.GONE);
+            return;
+        }
         SaloonService saloonService = (SaloonService) listInstances.get(position);
         holder.btnEdit.setOnClickListener(view -> {
             SaloonServicesActivity.selectedSaloonService = saloonService;

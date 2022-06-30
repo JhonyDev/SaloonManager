@@ -9,6 +9,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -121,12 +122,22 @@ public class Registration extends AppCompatActivity implements Info {
         if (!strEtPassword.equals(strEtConfirmPassword))
             return;
 
+        if (strEtPassword.length() < 6) {
+            etPassword.setError("Password must be greater than 6 characters");
+            Toast.makeText(this, "Password must be greater than 6 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
         strEtEmail = "abc" + cpp.getSelectedCountryCode() + strEtPhone + "@email.com";
+        String type = CUSTOMER;
+        if (rbSalonManager.isChecked())
+            type = SALOON_MANAGER;
 
         Registration.userModel = new UserModel(strEtFirstName, strEtLastName, strEtUserName,
                 strEtEmail,
                 "+" + cpp.getSelectedCountryCode() + strEtPhone,
-                CUSTOMER);
+                type);
 
         startActivity(new Intent(this, PostVerificationCode.class));
     }

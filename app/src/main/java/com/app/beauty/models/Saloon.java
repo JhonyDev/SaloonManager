@@ -7,6 +7,7 @@ public class Saloon extends Super {
     String workingDays;
     String timingFrom;
     String timingTo;
+    String timeSlotBinary;
     String note;
     String phone; // EasyPaisa account number
 
@@ -22,6 +23,14 @@ public class Saloon extends Super {
         this.timingTo = timingTo;
         this.note = note;
         this.phone = phone;
+    }
+
+    public String getTimeSlotBinary() {
+        return timeSlotBinary;
+    }
+
+    public void setTimeSlotBinary(String timeSlotBinary) {
+        this.timeSlotBinary = timeSlotBinary;
     }
 
     public String getPhone() {

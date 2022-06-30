@@ -30,6 +30,7 @@ public class TypeRecyclerViewHolder extends RecyclerView.ViewHolder {
     TextView tvTimingFrom;
     TextView tvTimingTo;
     TextView tvTxId;
+    TextView tv_staff;
 
     RatingBar rbRating;
     EditText etReview;
@@ -38,6 +39,7 @@ public class TypeRecyclerViewHolder extends RecyclerView.ViewHolder {
     Button btnReject;
     Button btnConfirm;
     Button btnRate;
+    Button btnCompleted;
     LinearLayout llClick;
 
     public TypeRecyclerViewHolder(@NonNull View itemView) {
@@ -50,6 +52,7 @@ public class TypeRecyclerViewHolder extends RecyclerView.ViewHolder {
         btnConfirm = itemView.findViewById(R.id.btn_confirm);
         btnReject = itemView.findViewById(R.id.btn_reject);
         btnRate = itemView.findViewById(R.id.btn_rate);
+        btnCompleted = itemView.findViewById(R.id.btn_complete);
 
         tvCustomerName = itemView.findViewById(R.id.tv_customer_name);
         mdpDayPicker = itemView.findViewById(R.id.mdp_days);
@@ -58,6 +61,7 @@ public class TypeRecyclerViewHolder extends RecyclerView.ViewHolder {
         tvTimingTo = itemView.findViewById(R.id.tv_timing_to);
         tvTxId = itemView.findViewById(R.id.tv_txid);
         llClick = itemView.findViewById(R.id.ll_click);
+        tv_staff = itemView.findViewById(R.id.tv_staff);
 
         tvStatus = itemView.findViewById(R.id.tv_status);
         tvDate = itemView.findViewById(R.id.tv_date);

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
+import com.app.beauty.activities.customer.ui.CustomerSaloons;
+import com.app.beauty.activities.saloon.ui.SaloonAppointmentsActivity;
 import com.app.beauty.models.CustomerAppointment;
 import com.app.beauty.models.CustomerReview;
 import com.app.beauty.utils.Utils;

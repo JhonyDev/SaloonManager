@@ -100,7 +100,6 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginBottom="10dp"
             android:clickable="false"
-            android:drawableStart="@android:drawable/stat_sys_phone_call"
             android:drawablePadding="10dp"
             android:focusableInTouchMode="false"
             android:hint="@string/days"

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -19,9 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
-import com.app.beauty.activities.dashboards.CustomerDashboard;
-import com.app.beauty.activities.dashboards.SaloonManagerDashboard;
+import com.app.beauty.activities.customer.ui.CustomerDashboard;
+import com.app.beauty.activities.saloon.ui.SaloonManagerDashboard;
 import com.app.beauty.models.UserModel;
+import com.app.beauty.singletons.SlotsMapSingleton;
 import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,8 +46,6 @@ public class Login extends AppCompatActivity implements Info {
     String strEtEmail;
     String strEtPassword;
     boolean isPassVisible = false;
-    String text;
-    boolean isThreadRunning = false;
     private Dialog loadingDialog;
 
     @Override
@@ -56,18 +54,42 @@ public class Login extends AppCompatActivity implements Info {
         setContentView(R.layout.activity_login);
         context = this;
 
+        Log.i(TAG, "onCreate: " + SlotsMapSingleton.getInstance());
+
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_pass);
 
         loadingDialog = new Dialog(this);
         DialogUtils.initLoadingDialog(loadingDialog);
 
+        etEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String text = etEmail.getText().toString();
+                if (text.length() > 0) {
+                    if (!text.contains("+")) {
+                        String newTxt = "+" + text;
+                        etEmail.setText(newTxt);
+                        etEmail.setSelection(etEmail.getText().length());
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             loadingDialog.show();
             parseUserData();
         }
-
-
     }
 
 
@@ -148,8 +170,15 @@ public class Login extends AppCompatActivity implements Info {
                     loadingDialog.dismiss();
                     if (task.isSuccessful()) {
                         initUserData();
-                    } else
+                    } else {
                         Objects.requireNonNull(task.getException()).printStackTrace();
+                        try {
+                            Toast.makeText(this, task.getException().getMessage()
+                                    , Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 });
     }
 

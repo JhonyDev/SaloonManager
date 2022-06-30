@@ -14,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.beauty.Info.Info;
 import com.app.beauty.R;
-import com.app.beauty.activities.dashboards.CustomerDashboard;
-import com.app.beauty.activities.dashboards.SaloonManagerDashboard;
+import com.app.beauty.activities.customer.ui.CustomerDashboard;
+import com.app.beauty.activities.saloon.ui.SaloonManagerDashboard;
 import com.app.beauty.models.UserModel;
 import com.app.beauty.utils.DialogUtils;
 import com.app.beauty.utils.Utils;
@@ -46,10 +46,12 @@ public class PostVerificationCode extends AppCompatActivity implements Info {
         dgLoading = new Dialog(this);
 
         DialogUtils.initLoadingDialog(dgLoading);
+        Toast.makeText(this, "Please wait for captcha confirmation in 5 seconds", Toast.LENGTH_LONG).show();
         initCallBack();
         sendVerificationCode();
 
     }
+
 
     private void initCallBack() {
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -100,6 +102,7 @@ public class PostVerificationCode extends AppCompatActivity implements Info {
     }
 
     public void verify(View view) {
+        dgLoading.show();
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verCodeBySystem,
                 etVerCode.getText().toString().trim());
         signInWithPhoneAuthCredential(credential);
@@ -122,6 +125,7 @@ public class PostVerificationCode extends AppCompatActivity implements Info {
 
     private void initUserData(UserModel userModel) {
         Log.i(TAG, "initUserData: CREATING USER WITH EMAIL - ");
+        dgLoading.show();
         FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(Registration.userModel.getEmail(), Registration.strEtPassword)
                 .addOnCompleteListener(task -> {

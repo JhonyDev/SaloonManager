@@ -229,4 +229,21 @@
     <string name="name">Name</string>
     <string name="no_reviews_found">No Data Found</string>
     <string name="reviews_i_got_from_saloon">Reviews I got from saloons</string>
+    <string name="select_saloon_available_timings">Select saloon\'s available time slots</string>
+    <string name="requested_app">Requested appointment is already booked, Are you sure you want to book again?</string>
+    <string name="service_category">Service Category</string>
+
+    <string-array name="categories">
+        <item>Haircutting</item>
+        <item>Make-ups</item>
+        <item>Facial</item>
+        <item>Photo-shoot</item>
+        <item>Nail-Care</item>
+        <item>Foot-Care</item>
+        <item>Waxing</item>
+        <item>Hair color</item>
+        <item>Styling</item>
+        <item>Keratin</item>
+        <item>Mehndi</item>
+    </string-array>
 </resources>

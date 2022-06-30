@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_grey"
-    tools:context=".activities.SaloonEditService">
+    tools:context=".activities.saloon.ui.SaloonEditService">
 
     <TextView
         android:id="@+id/textView"
@@ -18,9 +18,9 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:drawableStartCompat="@drawable/back_arrow"
+        app:drawableTint="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:drawableTint="@color/yellow" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ScrollView
         android:id="@+id/rv_services"
@@ -76,10 +76,37 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="10dp"
-                android:text="@string/description"
+                android:text="@string/service_category"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
+            <Spinner
+                android:id="@+id/spn_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_rectangle_1594"
+                android:drawableStart="?android:attr/textCursorDrawable"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:entries="@array/categories"
+                android:hint="@string/description"
+                android:inputType="text"
+                style="@style/spinner_style"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint_color"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:text="@string/description"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/et_description"
@@ -123,6 +150,17 @@
                 android:textColorHint="@color/hint_color"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/remove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_back"
+                android:backgroundTint="@color/red"
+                android:onClick="delete"
+                android:text="Delete Service"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
