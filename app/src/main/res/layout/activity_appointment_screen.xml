@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:text="(Select date to show available time slots)"
+                android:text="(Select date to show available time slots, Yellow -> Selected)"
                 android:textColor="@color/gray"
                 android:textSize="12sp"
                 android:textStyle="italic" />

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,8 +38,7 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
         setContentView(R.layout.activity_list_saloon_services);
         context = this;
         initViews();
-
-
+        Toast.makeText(context, "Yellow days are saloon available days and unshaded days are saloon off days", Toast.LENGTH_SHORT).show();
         initRv();
         initRvData();
     }
