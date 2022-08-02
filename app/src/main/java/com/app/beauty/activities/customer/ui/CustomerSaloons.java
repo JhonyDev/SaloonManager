@@ -44,7 +44,6 @@ public class CustomerSaloons extends AppCompatActivity implements Info {
     }
 
     private void initViews() {
-
         rvSaloons = findViewById(R.id.rv_saloons);
         tvNoReview = findViewById(R.id.tv_no_review);
     }
